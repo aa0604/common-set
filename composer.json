@@ -1,0 +1,22 @@
+{
+    "name": "xing.chen/common-set",
+    "description": "通用设置，带后台界面，api输出",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris",
+            "email": "87734686@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "xing.chen/helper": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "xing\\common-set\\": "xing\\commonSet"
+        }
+    }
+}
