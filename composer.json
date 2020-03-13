@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "xing\\yii-common-set\\": "xing\\commonSet"
+            "xing\\commonSet\\": "xing\\yii-common-set"
         }
     }
 }

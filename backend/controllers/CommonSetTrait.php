@@ -1,6 +1,6 @@
 <?php
 
-namespace xing\commonSet\yii\backend\controllers;
+namespace xing\commonSet\backend\controllers;
 
 
 use xing\commonSet\yii\models\CommonSet;
@@ -12,6 +12,7 @@ use Yii;
 trait CommonSetTrait
 {
 
+    public $viewPath = '@vendor/xing.chen/article/backend/views/common-set/';
     /**
      * {@inheritdoc}
      */
@@ -36,7 +37,7 @@ trait CommonSetTrait
         $searchModel = new CommonSetSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render($this->viewPath . 'index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -50,7 +51,7 @@ trait CommonSetTrait
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->render($this->viewPath . 'view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -68,7 +69,7 @@ trait CommonSetTrait
             return $this->redirect(['view', 'id' => $model->key]);
         }
 
-        return $this->render('create', [
+        return $this->render($this->viewPath . 'create', [
             'model' => $model,
         ]);
     }
@@ -88,7 +89,7 @@ trait CommonSetTrait
             return $this->redirect(['view', 'id' => $model->key]);
         }
 
-        return $this->render('update', [
+        return $this->render($this->viewPath . 'update', [
             'model' => $model,
         ]);
     }
