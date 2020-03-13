@@ -1,6 +1,6 @@
 {
     "name": "xing.chen/common-set",
-    "description": "通用设置，带后台界面，api输出",
+    "description": "通用设置管理，带后台界面",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
     "license": "MIT",
