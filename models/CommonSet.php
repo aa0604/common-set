@@ -1,6 +1,6 @@
 <?php
 
-namespace xing\commonSet\yii\models;
+namespace xing\commonSet\models;
 
 use Yii;
 
@@ -11,6 +11,7 @@ use Yii;
  * @property string $label 名称
  * @property string|null $describe 描述
  * @property string|null $value 值
+ * @property string|null $group 分组
  * @property string|null $updateTime 修改时间
  * @property int|null $userId 操作用户
  */
@@ -33,7 +34,7 @@ class CommonSet extends \xing\helper\yii\BaseActiveModel
             [['key', 'label'], 'required'],
             [['updateTime'], 'safe'],
             [['userId'], 'integer'],
-            [['key'], 'string', 'max' => 100],
+            [['key', 'group'], 'string', 'max' => 100],
             [['label'], 'string', 'max' => 1000],
             [['describe', 'value'], 'string', 'max' => 5000],
             [['key'], 'unique'],
@@ -50,8 +51,15 @@ class CommonSet extends \xing\helper\yii\BaseActiveModel
             'label' => '名称',
             'describe' => '描述',
             'value' => '值',
+            'group' => '分组',
             'updateTime' => '修改时间',
             'userId' => '操作用户',
         ];
+    }
+    
+    public function beforeSave($insert)
+    {
+        $this->updateTime = date('Y-m-d H:i:s');
+        return parent::beforeSave($insert);
     }
 }

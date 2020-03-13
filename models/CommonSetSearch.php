@@ -1,13 +1,13 @@
 <?php
 
-namespace xing\commonSet\yii\models;
+namespace xing\commonSet\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\modules\site\CommonSet;
+use xing\commonSet\models\CommonSet;
 
 /**
- * CommonSetSearch represents the model behind the search form of `common\modules\site\CommonSet`.
+ * CommonSetSearch represents the model behind the search form of `xing\commonSet\models\CommonSet`.
  */
 class CommonSetSearch extends CommonSet
 {
@@ -41,6 +41,7 @@ class CommonSetSearch extends CommonSet
     public function search($params)
     {
         $query = CommonSet::find();
+        if (!isset($params[self::formName()]['sort'])) $query->orderBy(['updateTime' => SORT_DESC]);
 
         // add conditions that should always apply here
 

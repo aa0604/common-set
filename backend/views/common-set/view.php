@@ -4,12 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\modules\site\CommonSet */
+/* @var $model xing\commonSet\models\CommonSet */
 
 $this->title = $model->key;
-$this->params['breadcrumbs'][] = ['label' => 'Common Sets', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '设置', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
 ?>
 <div class="common-set-view">
 
@@ -20,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->key], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '确定删除吗？',
                 'method' => 'post',
             ],
         ]) ?>

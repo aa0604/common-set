@@ -3,8 +3,8 @@
 namespace xing\commonSet\backend\controllers;
 
 
-use xing\commonSet\yii\models\CommonSet;
-use xing\commonSet\yii\models\CommonSetSearch;
+use xing\commonSet\models\CommonSet;
+use xing\commonSet\models\CommonSetSearch;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use Yii;
@@ -12,7 +12,9 @@ use Yii;
 trait CommonSetTrait
 {
 
-    public $viewPath = '@vendor/xing.chen/article/backend/views/common-set/';
+    public $viewPath = '@vendor/xing.chen/yii-common-set/backend/views/common-set/';
+    
+    public $group = ['sys' => '系统', 'common' => '普通', 'user' => '用户'];
     /**
      * {@inheritdoc}
      */
@@ -40,6 +42,7 @@ trait CommonSetTrait
         return $this->render($this->viewPath . 'index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'group' => $this->group,
         ]);
     }
 
@@ -66,11 +69,12 @@ trait CommonSetTrait
         $model = new CommonSet();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->key]);
+            return $this->redirect(['index']);
         }
 
         return $this->render($this->viewPath . 'create', [
             'model' => $model,
+            'group' => $this->group,
         ]);
     }
 
@@ -86,11 +90,12 @@ trait CommonSetTrait
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->key]);
+            return $this->redirect(['index', 'id' => $model->key]);
         }
 
         return $this->render($this->viewPath . 'update', [
             'model' => $model,
+            'group' => $this->group,
         ]);
     }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace xing\commonSet\yii\logic;
+namespace xing\commonSet\logic;
 
-use xing\commonSet\yii\models\CommonSet;
+use xing\commonSet\models\CommonSet;
 
 class CommonSetLogic
 {

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\modules\site\CommonSetSearch */
+/* @var $model xing\commonSet\models\CommonSetSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -28,8 +28,9 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'userId') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::submitButton('搜索', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('重置', ['class' => 'btn btn-default']) ?>
+        <div class="help-block"></div>
     </div>
 
     <?php ActiveForm::end(); ?>

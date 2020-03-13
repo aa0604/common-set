@@ -4,30 +4,28 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\modules\site\CommonSetSearch */
+/* @var $searchModel xing\commonSet\models\CommonSetSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Common Sets';
+$this->title = '设置';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="common-set-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Common Set', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<div class="common-set-index form-inline">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
+    <p>
+        <?= Html::a('增加', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 不显示搜索框 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'key',
             'label',
+            'key',
             'describe',
             'value',
             'updateTime',
@@ -36,6 +34,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
-
 </div>
