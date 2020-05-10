@@ -2,6 +2,7 @@
     "name": "xing.chen/yii-common-set",
     "description": "通用设置管理，带后台界面",
     "keywords": ["yii2","extension"],
+    "type": "yii2-extension",
     "license": "MIT",
     "authors": [
         {
